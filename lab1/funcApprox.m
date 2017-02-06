@@ -21,8 +21,8 @@ targets = reshape(z, 1, ndata);
 patterns = [reshape(xx, 1, ndata) ; reshape(yy, 1, ndata)];
 
 iters = 1:300;
-hidden = 3;
-eta = 0.001;
+hidden = 10;
+eta = 0.1;
 alpha = 0.9;
 error = zeros(1,100);
 

@@ -1,7 +1,7 @@
 clear();
 
-%genSepData();
-genNonSepData();
+genSepData();
+%genNonSepData();
 
 [insize, ndata1] = size(patterns);
 [outsize, ndata2] = size(targets);

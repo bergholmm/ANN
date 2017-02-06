@@ -7,7 +7,7 @@ z = exp(-x .* x * 0.1) * exp(-y .* y * 0.1)' - 0.5;
 [ydata, ~] = size(y);
 ndata = xdata * ydata;
 
-n = int64(ndata * 0.99);
+n = 25;
 
 targets = reshape(z, 1, ndata);
 [xx, yy] = meshgrid(x,y);
@@ -18,7 +18,7 @@ trainPatterns(1, :) = patterns(1, 1:n);
 trainPatterns(2, :) = patterns(2, 1:n);
 
 iters = 1:200;
-hidden = 1;
+hidden = 25;
 eta = 0.1;
 alpha = 0.9;
 error = zeros(1,100);

@@ -3,8 +3,9 @@ clear();
 %genSepData();
 genNonSepData();
 
-iters = 200;
 hidden = 2;
+
+iters = 100;
 eta = 0.1;
 alpha = 0.9;
 error = zeros(1,100);

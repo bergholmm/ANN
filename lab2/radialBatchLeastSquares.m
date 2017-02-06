@@ -1,14 +1,16 @@
 clear;
 addpath ./info;
 
-x = [0:0.1:2*pi]';
-y = square(2*x);
-units = 50;
+x = [0 0; 0 1; 1 0; 1 1];
+y = [0 1 1 0]';
+units = 2;
 
 makerbf();
 Phi = calcPhi(x, m, var);
 
-w = Phi \ y;
+w = Phi \ y; 
 f = Phi * w;
 
 rbfplot1(x, f, y, units);
+
+s = sign(f-y)

@@ -1,3 +1,6 @@
+clear;
+addpath ./info;
+
 [xtrain, ytrain] = readxy('ballist', 2, 2);
 [xtest, ytest] = readxy('balltest', 2, 2);
 
@@ -6,7 +9,7 @@ data = xtrain;
 vqinit;
 singlewinner = 1;
 
-emiterb;
+emiterb();
 
 Phi = calcPhi(xtrain, m, var);
 
@@ -26,7 +29,9 @@ Phitest = calcPhi(xtest, m, var);
 ytest1 = Phitest*w1;
 ytest2 = Phitest*w2;
 
-xyplot(d1, y1, 'train1');
-xyplot(d2, y2, 'train2');
-xyplot(dtest1, ytest1, 'test1');
-xyplot(dtest2, ytest2, 'test2');
+xyplot(d1, y1, 'train1')
+axis ([0, 1, 0, 1], 'square');
+
+%xyplot(d2, y2, 'train2');
+%xyplot(dtest1, ytest1, 'test1');
+%xyplot(dtest2, ytest2, 'test2');

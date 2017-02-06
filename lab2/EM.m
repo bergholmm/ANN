@@ -3,9 +3,9 @@ addpath ./info;
 
 plotinit;
 data = read('cluster');
-units = 3;
+units = 5;
 
 vqinit;
 
-singlewinner = 1;
+singlewinner = 0;
 emiterb;
