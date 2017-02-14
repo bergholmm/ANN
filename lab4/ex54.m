@@ -16,9 +16,9 @@ end
 W = W / num_patterns;
 
 
-for p = 0.1:0.05:0.9
+for p = 0.0:0.05:1
     disp(int64(p*nodes));
-    pattern = fp(p1, int64(p*nodes));
+    pattern = fp(p3, int64(p*nodes));
     vis(pattern);
     pause(1);
     for j = 1:5000

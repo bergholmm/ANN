@@ -12,8 +12,6 @@ patterns = [x1; x2; x3];
 [num_patterns, len_patterns] = size(patterns); 
 W = zeros(nodes, nodes);
 
-N = log(nodes);
-
 for i = 1:num_patterns
     W = W + patterns(i,:)'.*patterns(i,:) - eye(nodes);
 end
@@ -24,21 +22,21 @@ W = W / num_patterns;
 
 % Test energy at attactors
 
-% all_patterns = de2bi(0:2^len_patterns-1);
-% [num_test, len_test] = size(all_patterns); 
-% 
-% for i = 1:num_test
-%     all_patterns = sgn(all_patterns*W);
-% end
-% 
-% attractors = unique(all_patterns, 'rows');
-% e = zeros(length(attractors), 1);
-% len = length(attractors);
-% 
-% for i = 1:len
-%     e(i) = energy(W, attractors(i,:));
-% end
-% disp(e);
+all_patterns = de2bi(0:2^len_patterns-1);
+[num_test, len_test] = size(all_patterns); 
+
+for i = 1:num_test
+    all_patterns = sgn(all_patterns*W);
+end
+
+attractors = unique(all_patterns, 'rows');
+e = zeros(length(attractors), 1);
+len = length(attractors);
+
+for i = 1:len
+    e(i) = energy(W, attractors(i,:));
+end
+disp(e);
 
 
 % Test energy at distorted patterns
@@ -58,12 +56,24 @@ W = W / num_patterns;
 
 % Follow the energy from iteration to iteration
 
-for j = 1:1000
-    i = randi([1 nodes], 1, 1);
-    pattern(i) = sgn(pattern*W(i,:)');
-    if mod(j,100) == 0
-        vis(pattern);
-        pause(0.1);
-    end
-end
-vis(pattern);
+% pattern = vm([1 1 1 0 1 1 0 1]);
+% 
+% for j = 1:10
+%     i = randi([1 nodes], 1, 1);
+%     pattern(i) = sgn(pattern*W(i,:)');
+%     disp(energy(W,pattern));
+% end
+
+
+% W matrix with normal dist (non-symmetric and symetric)
+
+% W = rand(nodes, nodes);
+% W = 0.5*(W+W');
+% 
+% pattern = vm([1 1 1 0 1 1 0 1]);
+% 
+% for j = 1:10
+%     i = randi([1 nodes], 1, 1);
+%     pattern(i) = sgn(pattern*W(i,:)');
+%     disp(energy(W,pattern));
+% end

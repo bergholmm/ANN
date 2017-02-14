@@ -18,7 +18,7 @@ W = W / num_patterns;
 pattern = p22;
 
 for j = 1:7000
-    i = randi([1 1024], 1, 1);
+    i = randi([1 len_patterns], 1, 1);
     pattern(i) = sgn(pattern*W(i,:)');
     if mod(j,100) == 0
         vis(pattern);

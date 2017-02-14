@@ -2,7 +2,7 @@ addpath ./som;
 
 animals;
 [numAnim, numAttr] = size(props); 
-W = rand(100, 84);
+W = rand(100, numAttr);
 eta = 0.2;
 epochs = 20;
 neighbours = 50;

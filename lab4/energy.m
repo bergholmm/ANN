@@ -1,3 +1,3 @@
 function e = energy(W, x)
-    e = -sum(sum(W*(x'*x)));
+    e = x*W*x'/-2;
 end

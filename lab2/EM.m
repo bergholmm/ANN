@@ -3,7 +3,7 @@ addpath ./info;
 
 plotinit;
 data = read('cluster');
-units = 5;
+units = 3;
 
 vqinit;
 

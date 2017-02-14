@@ -66,14 +66,18 @@ W = W / num_patterns;
 
 
 % W matrix with normal dist (non-symmetric and symetric)
+W = -1 +(1+1)*rand(nodes, nodes);
+W = 0.5*(W+W');
 
-% W = rand(nodes, nodes);
-% W = 0.5*(W+W');
-% 
-% pattern = vm([1 1 1 0 1 1 0 1]);
-% 
-% for j = 1:10
-%     i = randi([1 nodes], 1, 1);
-%     pattern(i) = sgn(pattern*W(i,:)');
-%     disp(energy(W,pattern));
-% end
+pattern = vm([0 0 0 0 0 0 0 0]);
+iter = 1000;
+e = zeros(iter, 1);
+
+for j = 1:iter
+    pattern = sgn(pattern*W);
+    e(j) = energy(W,pattern);
+end
+
+[c, ia, ic] = unique(e);
+c
+ia

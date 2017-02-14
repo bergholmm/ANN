@@ -16,7 +16,13 @@ end
 W = W / num_patterns;
 
 pattern = p11;
-for j = 1:N
-    pattern = sgn(pattern*W);
+
+for j = 1:7000
+    i = randi([1 len_patterns], 1, 1);
+    pattern(i) = sgn(pattern*W(i,:)');
+    if mod(j,100) == 0
+        vis(pattern);
+        pause(0.1);
+    end
 end
 vis(pattern);
