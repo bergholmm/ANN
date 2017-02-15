@@ -2,7 +2,7 @@ addpath ./som;
 
 cities;
 [numCities, numAttr] = size(city); 
-nodes = 10;
+nodes = 20;
 W = rand(nodes, numAttr);
 eta = 0.2;
 epochs = 20;
